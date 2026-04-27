@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: whitesmoke;
+}
+.card{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    background: rgb(149, 149, 205);
+    border-radius: 15px;
+    border: 2px solid rgb(171, 201, 231);
+    transition: 0.4s;
+    overflow: hidden;
+}
+.card label{
+    position: relative;
+     display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+}
+
+.card::before{
+    content: "💫";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgb(38, 24, 130);
+    top: -80px;
+    left: -80px;
+    border-radius: 50%;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+.card::after{
+    content: "✨";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgb(138, 95, 140);
+    bottom: -60px;
+    right: -30px;
+    border-radius: 50%;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+.card:hover::before{
+    top:-40px ;
+    left: -40px;
+    transform: scale(1.2);
+}
+
+.card:hover::after{
+    bottom: -40px;
+    right: -40px;
+    transform: scale(1.2);
+}
+.card:has(input:checked){
+    border: 2px solid green;
+    box-shadow: 0 0 40px green;
+}
+.text{
+    font-size: 30px;
+    color: crimson;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.3s;
+}
+input{
+    transform: scale(1.5);
+}
+.card:has(input:checked) .text{
+    opacity: 0;
+}
+.card:has(input:checked)::after{
+    content: "✔";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: lime;
+    z-index: 3;
+}
